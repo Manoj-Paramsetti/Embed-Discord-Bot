@@ -1,0 +1,1 @@
+heroku: python app.py
