@@ -1,0 +1,18 @@
+name: issue open Greetings
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Manoj-Paramsetti/greets-action@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          issue_message: 'Thank you @${{github.actor}} for taking your time to raise an issue.<br>This repository maintainer(s) will check this soon'
+          pr_message: '<h1>:partying_face: Congratulations! @${{github.actor}} :tada:</h1>Thank you for taking your time and contributing to this repo.<br>This repository maintainer(s) will check this soon'
+          label_1: opened
+          label_2: proposal

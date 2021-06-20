@@ -1,0 +1,12 @@
+addReviewers: true
+
+addAssignees: author
+
+reviewers: 
+  - Manoj-Paramsetti 
+
+skipKeywords:
+  - wip
+  - draft
+
+numberOfReviewers: 0
