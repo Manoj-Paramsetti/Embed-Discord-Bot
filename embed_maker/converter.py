@@ -13,16 +13,25 @@ def embed(string, ctx, Color):
         for line in string.split('\n'):
             # Checking the h1 tags using RegEx
             if re.match("^<h1>", line) and re.findall("<h1>$", line):
-                text=line.split("<desc>")
-                embed=discord.Embed(title = text[0][4:], description = text[1][:-4], color = Color())
+                if "<desc>" in line:
+                    text=line.split("<desc>")
+                    embed=discord.Embed(title = text[0][4:], description = text[1][:-4], color = Color())
+                else:
+                    embed=discord.Embed(title = line[4:-4], color = Color())   
             # Checking the h1 tags using RegEx
             elif re.match("^<h2>", line) and re.findall("<h2>$", line):
-                text=line.split("<desc>")
-                embed.add_field(name = text[0][4:], value = text[1][:-4], inline =False)
+                if "<desc>" in line:
+                    text=line.split("<desc>")
+                    embed=discord.Embed(title = text[0][4:], description = text[1][:-4], color = Color())
+                else:
+                    embed=discord.Embed(title = line[4:-4], color = Color())
             # Checking the h1 tags using RegEx
             elif re.match("^<inline>", line) and re.findall("<inline>$", line):
-                text=line.split("<desc>")
-                embed.add_field(name = text[0][8:], value = text[1][:-8], inline= True)
+                if "<desc>" in line:
+                    text=line.split("<desc>")
+                    embed=discord.Embed(title = text[0][8:], description = text[1][:-8], color = Color())
+                else:
+                    embed=discord.Embed(title = line[8:-8], color = Color())
             # Checking the h1 tags using RegEx
             elif re.match("^<img>", line) and re.findall("<img>$", line):
                 if is_url_image(line[5:-5]):
