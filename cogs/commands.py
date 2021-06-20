@@ -12,22 +12,22 @@ class commander(commands.Cog):
     @commands.command("embed")
     async def embed(self, ctx, *, arg=""):
         await ctx.message.delete()
-        await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.red()))
+        await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.teal))
     
     @commands.command("embed-red")
     async def embed_red(self, ctx, *, arg=""):
         await ctx.message.delete()
-        await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.red()))
+        await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.red))
     
     @commands.command("embed-blue")
     async def embed_blue(self, ctx, *, arg=""):
         await ctx.message.delete()
-        await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.blue()))
+        await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.blue))
     
     @commands.command("embed-dark-gold")
     async def embed_dark_gold(self, ctx, *, arg=""):
         await ctx.message.delete()
-        await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.dark_blue()))
+        await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.dark_blue))
     
     @commands.command("embed-dark-green")
     async def embed_dark_green(self, ctx, *, arg=""):
@@ -84,11 +84,6 @@ class commander(commands.Cog):
         await ctx.message.delete()
         await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.magenta))
 
-    @commands.command("embed-mro")
-    async def embed_mro(self, ctx, *, arg=""):
-        await ctx.message.delete()
-        await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.mro))
-    
     @commands.command("embed-orange")
     async def embed_orange(self, ctx, *, arg=""):
         await ctx.message.delete()

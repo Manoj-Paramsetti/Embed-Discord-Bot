@@ -34,7 +34,7 @@ def embed(string, ctx, Color):
             # Checking the h1 tags using RegEx
             elif re.match("^<footerImg>", line) and re.findall("<footerImg>$", line):
                 text=line.split("<img>")
-                if is_url_image(text[1]):
+                if is_url_image(text[1][:-11]):
                     embed.set_footer(text = text[0][11:], icon_url = text[1][:-11])
             # Checking the h1 tags using RegEx
             elif re.match("^<footer>", line) and re.findall("<footer>$", line):
