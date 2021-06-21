@@ -26,9 +26,9 @@ def embed(string, ctx, Color):
             elif re.match("^<h2>", line) and re.findall("<h2>$", line):
                 if "<desc>" in line:
                     text=line.split("<desc>")
-                    embed.add_field(name = text[0][4:], value = text[1][:-4])
+                    embed.add_field(name = text[0][4:], value = text[1][:-4], inline="False")
                 else:
-                    embed.add_field(name = line[4:-4])
+                    embed.add_field(name = line[4:-4], value="", inline="False")
             
             # Checking the h1 tags using RegEx
             elif re.match("^<inline>", line) and re.findall("<inline>$", line):
@@ -36,7 +36,7 @@ def embed(string, ctx, Color):
                     text=line.split("<desc>")
                     embed.add_field(name = text[0][8:], value = text[1][:-8])
                 else:
-                    embed.add_field(name = line[8:-8])
+                    embed.add_field(name = line[8:-8],value="")
             
             # Checking the h1 tags using RegEx
             elif re.match("^<img>", line) and re.findall("<img>$", line):
