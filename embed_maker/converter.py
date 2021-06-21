@@ -22,16 +22,16 @@ def embed(string, ctx, Color):
             elif re.match("^<h2>", line) and re.findall("<h2>$", line):
                 if "<desc>" in line:
                     text=line.split("<desc>")
-                    embed=discord.Embed(title = text[0][4:], description = text[1][:-4], color = Color())
+                    embed.add_field(name = text[0][4:], value = text[1][:-4], color = Color())
                 else:
-                    embed=discord.Embed(title = line[4:-4], color = Color())
+                    embed.add_field(name = line[4:-4], color = Color())
             # Checking the h1 tags using RegEx
             elif re.match("^<inline>", line) and re.findall("<inline>$", line):
                 if "<desc>" in line:
                     text=line.split("<desc>")
-                    embed=discord.Embed(title = text[0][8:], description = text[1][:-8], color = Color())
+                    embed.add_field(name = text[0][8:], value = text[1][:-8], color = Color())
                 else:
-                    embed=discord.Embed(title = line[8:-8], color = Color())
+                    embed.add_field(name = line[8:-8], color = Color())
             # Checking the h1 tags using RegEx
             elif re.match("^<img>", line) and re.findall("<img>$", line):
                 if is_url_image(line[5:-5]):
