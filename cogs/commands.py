@@ -2,13 +2,15 @@
 
 import discord
 from discord.ext import commands
+
+from embed_maker.help import color_help, normal_help
 from embed_maker import converter
 
 class commander(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-
+        
     @commands.command("embed")
     async def embed(self, ctx, *, arg=""):
         await ctx.message.delete()
@@ -103,11 +105,10 @@ class commander(commands.Cog):
     async def help(self, ctx, *arg):
         # Here we are just checking whether the argument is passed with command
         if arg == ():
-            await ctx.channel.send("Sorry, It is under work. so, this bot will not show any help")
+            await ctx.channel.send(embed=normal_help())
         # Here we are sending help for embed colors
         elif arg[0] == "color":
-            await ctx.channel.send("Here, I'll show all the embed commands with colour")
-
+            await ctx.channel.send(embed=color_help())
 
 def setup(bot):
     # pushing cogs to main runner
