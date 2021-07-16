@@ -76,3 +76,13 @@ def is_url_image(image):
         return False
     except:
         return False
+
+
+
+def embedCode(string, ctx, Color):
+    embed=discord.Embed(title = string.split('\n')[0], description = "```\n"+string[len(string.split('\n')[0])+1:]+"\n```",  color = Color())
+    embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+
+    # Adding the author name and author's display picture
+    return embed
+

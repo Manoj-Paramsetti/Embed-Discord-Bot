@@ -21,6 +21,11 @@ class commander(commands.Cog):
         await ctx.message.delete()
         await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.red))
     
+    @commands.command("embed-code")
+    async def embed_red(self, ctx, *, arg=""):
+        await ctx.message.delete()
+        await ctx.channel.send(embed=converter.embedCode(arg, ctx, discord.Color.red))
+    
     @commands.command("embed-blue")
     async def embed_blue(self, ctx, *, arg=""):
         await ctx.message.delete()
