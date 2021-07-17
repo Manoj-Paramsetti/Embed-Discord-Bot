@@ -11,6 +11,11 @@ class commander(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
+
+    @commands.command("embed")
+    async def embed(self, ctx, *, arg=""):
+        await ctx.message.delete()
+        await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.teal))
         
     @commands.command("embed-announce")
     async def embed(self, ctx, *, arg=""):
