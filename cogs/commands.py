@@ -18,12 +18,12 @@ class commander(commands.Cog):
         await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.teal))
         
     @commands.command("embed-announce")
-    async def embed(self, ctx, *, arg=""):
+    async def embed_announce(self, ctx, *, arg=""):
         await ctx.message.delete()
         await ctx.channel.send("@everyone",embed=converter.embed(arg, ctx, discord.Color.teal))
     
     @commands.command("embed-code-announce")
-    async def embed(self, ctx, *, arg=""):
+    async def embed_announce_code(self, ctx, *, arg=""):
         await ctx.message.delete()
         await ctx.channel.send("@everyone",embed=converter.embedCode(arg, ctx, discord.Color.teal))
     
