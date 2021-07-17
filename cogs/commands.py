@@ -1,6 +1,7 @@
 # Created by Manoj Paramsetti
 
 import discord
+from discord import message
 from discord.ext import commands
 
 from embed_maker.help import color_help, normal_help
@@ -11,10 +12,15 @@ class commander(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-    @commands.command("embed")
+    @commands.command("embed-announce")
     async def embed(self, ctx, *, arg=""):
         await ctx.message.delete()
-        await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.teal))
+        await ctx.channel.send("@everyone",embed=converter.embed(arg, ctx, discord.Color.teal))
+    
+    @commands.command("embed-code-announce")
+    async def embed(self, ctx, *, arg=""):
+        await ctx.message.delete()
+        await ctx.channel.send("@everyone",embed=converter.embedCode(arg, ctx, discord.Color.teal))
     
     @commands.command("embed-red")
     async def embed_red(self, ctx, *, arg=""):
