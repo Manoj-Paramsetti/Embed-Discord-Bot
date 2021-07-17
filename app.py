@@ -13,7 +13,7 @@ client = commands.Bot(command_prefix="!", help_command=None)
 @client.event
 async def on_ready():
     print("Bot engine is started")
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='!Help'))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='!help'))
 @client.event
 async def on_guild_join(guild):
     for channel in guild.text_channels:
