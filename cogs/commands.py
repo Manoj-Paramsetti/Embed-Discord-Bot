@@ -22,20 +22,27 @@ class commander(commands.Cog):
         await ctx.message.delete()
         await ctx.channel.send("@everyone",embed=converter.embed(arg, ctx, discord.Color.teal))
     
+    
     @commands.command("embed-code-announce")
     async def embed_announce_code(self, ctx, *, arg=""):
         await ctx.message.delete()
         await ctx.channel.send("@everyone",embed=converter.embedCode(arg, ctx, discord.Color.teal))
     
+    @commands.command("embed-code")
+    async def embed_code(self, ctx, *, arg=""):
+        await ctx.message.delete()
+        await ctx.channel.send(embed=converter.embedCode(arg, ctx, discord.Color.red))
+    
+    @commands.command("embed-code-use")
+    async def embed_code_use(self, ctx, arg1, *, arg=""):
+        await ctx.message.delete()
+        await ctx.channel.send(embed=converter.embedCodeUse(arg, arg1, ctx, discord.Color.red))
+        
     @commands.command("embed-red")
     async def embed_red(self, ctx, *, arg=""):
         await ctx.message.delete()
         await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.red))
     
-    @commands.command("embed-code")
-    async def embed_red(self, ctx, *, arg=""):
-        await ctx.message.delete()
-        await ctx.channel.send(embed=converter.embedCode(arg, ctx, discord.Color.red))
     
     @commands.command("embed-blue")
     async def embed_blue(self, ctx, *, arg=""):
