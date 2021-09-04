@@ -20,7 +20,7 @@ class commander(commands.Cog):
     @commands.command("embed-announce")
     async def embed_announce(self, ctx, *, arg=""):
         await ctx.message.delete()
-        await ctx.channel.send("@everyone",embed=converter.embed(arg, ctx, discord.Color.teal))
+        await ctx.channel.send("@everyone",embed=converter.embed(arg, ctx, discord.Color.dark_magenta))
     
     
     @commands.command("embed-code-announce")
