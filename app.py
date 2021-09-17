@@ -7,7 +7,7 @@ import dotenv
 from embed_maker.welcome_embed import welcome_msg
 
 dotenv.load_dotenv()
-client = commands.Bot(command_prefix="!", help_command=None)
+client = commands.Bot(command_prefix="$", help_command=None)
 
 # print when bot is live
 @client.event

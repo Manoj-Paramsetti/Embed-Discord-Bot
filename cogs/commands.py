@@ -43,12 +43,36 @@ class commander(commands.Cog):
         await ctx.message.delete()
         await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.red))
     
+    @commands.command("embed-clear")
+    @commands.bot_has_permissions(manage_messages = True)
+    async def clear(self, ctx, amount = 1):
+        perms= ctx.message.author.permissions_in(ctx.message.channel)
+        if (getattr(perms, "manage_messages")):
+            await ctx.channel.purge(limit=amount+1)
+            embed=discord.Embed(description = f"I deleted {amount} message(s)", color = discord.Color.red())
+            await ctx.channel.send(embed=embed)
+        else:
+            embed=discord.Embed(description = f"You are not having manage **messages permission** in this channel", color = discord.Color.red())
+            await ctx.channel.send(embed=embed)
     
+    @commands.command("spam-embed")
+    async def spam_embed(self, ctx, amount = 1, *, text=""):
+        if(str(ctx.message.author)=="Manoj Paramsetti#4427"):
+            for i in range(0, amount):      
+                embed=discord.Embed(description = f"{text}", color = discord.Color.red())
+                await ctx.channel.send(embed=embed)
+
+    @commands.command("spam")
+    async def spam(self, ctx, amount = 1, *, text=""):
+        if(str(ctx.message.author)=="Manoj Paramsetti#4427"):
+            for i in range(0, amount):      
+                await ctx.channel.send(text)
+
     @commands.command("embed-blue")
     async def embed_blue(self, ctx, *, arg=""):
         await ctx.message.delete()
         await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.blue))
-    
+
     @commands.command("embed-dark-gold")
     async def embed_dark_gold(self, ctx, *, arg=""):
         await ctx.message.delete()
