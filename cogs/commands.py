@@ -52,7 +52,7 @@ class commander(commands.Cog):
             embed=discord.Embed(description = f"I deleted {amount} message(s)", color = discord.Color.red())
             await ctx.channel.send(embed=embed)
         else:
-            embed=discord.Embed(description = f"You are not having manage **messages permission** in this channel", color = discord.Color.red())
+            embed=discord.Embed(description = f"You are not having **manage messages** permission in this channel", color = discord.Color.red())
             await ctx.channel.send(embed=embed)
     
     @commands.command("spam-embed")
