@@ -61,12 +61,19 @@ class commander(commands.Cog):
             for i in range(0, amount):      
                 embed=discord.Embed(description = f"{text}", color = discord.Color.red())
                 await ctx.channel.send(embed=embed)
+        else:
+            embed=discord.Embed(description = "You can't use this command", color = discord.Color.red())
+            await ctx.channel.send(embed=embed)
 
     @commands.command("spam")
     async def spam(self, ctx, amount = 1, *, text=""):
         if(str(ctx.message.author)=="Manoj Paramsetti#4427"):
             for i in range(0, amount):      
                 await ctx.channel.send(text)
+        else:
+            embed=discord.Embed(description = "You can't use this command", color = discord.Color.red())
+            await ctx.channel.send(embed=embed)
+
 
     @commands.command("embed-blue")
     async def embed_blue(self, ctx, *, arg=""):
