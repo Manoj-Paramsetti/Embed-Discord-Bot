@@ -74,6 +74,16 @@ class commander(commands.Cog):
             embed=discord.Embed(description = "You can't use this command", color = discord.Color.red())
             await ctx.channel.send(embed=embed)
 
+    @commands.command("cal")
+    async def calculate(self, ctx, *, text=""):
+        a = {'1','2','3','4','5','6','7','8','9','0','*','/','+','-'}
+        findchar = set(text)-set(a)
+        if(len(findchar)==0):
+            await ctx.channel.send(eval(text))
+            pass
+        else:
+            await ctx.channel.send('What are you trying to do actually?')
+            
 
     @commands.command("embed-blue")
     async def embed_blue(self, ctx, *, arg=""):
