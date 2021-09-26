@@ -76,14 +76,18 @@ class commander(commands.Cog):
 
     @commands.command("cal")
     async def calculate(self, ctx, *, text=""):
-        a = {'1','2','3','4','5','6','7','8','9','0','*','/','+','-'}
+        a = {'1','2','3','4','5','6','7','8','9','0','*','/','+','-', '(', ')'}
         findchar = set(text)-set(a)
+        try:
+            message = eval(text)
+        except:
+            message = 'I can\'t calculate that'
         if(len(findchar)==0):
-            await ctx.channel.send(eval(text))
+            await ctx.channel.send(message)
             pass
         else:
             await ctx.channel.send('What are you trying to do actually?')
-            
+
 
     @commands.command("embed-blue")
     async def embed_blue(self, ctx, *, arg=""):
