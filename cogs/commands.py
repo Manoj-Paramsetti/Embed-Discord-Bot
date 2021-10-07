@@ -63,12 +63,8 @@ class commander(commands.Cog):
 
     @commands.command("spam")
     async def spam(self, ctx, amount = 1, *, text=""):
-        if(str(ctx.message.author)=="Manoj Paramsetti#4427"):
-            for i in range(0, amount):      
-                await ctx.channel.send(text)
-        else:
-            embed=discord.Embed(description = "You can't use this command", color = discord.Color.red())
-            await ctx.channel.send(embed=embed)
+        for i in range(0, amount):      
+            await ctx.channel.send(text)
 
     @commands.command("cal")
     async def calculate(self, ctx, *, text=""):
