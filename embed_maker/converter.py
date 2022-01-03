@@ -65,6 +65,12 @@ def embed(string, ctx, Color):
     except AttributeError:
         return "Something went wrong"
 
+def profile(ctx, Color):
+    embed=discord.Embed(color = Color())
+    embed.set_image(url=ctx.author.avatar_url)
+    embed.set_author(name=ctx.author.name)
+    return embed
+
 # Checking the link is image and validating it with requests module
 def is_url_image(image):
     #checking content type with below options

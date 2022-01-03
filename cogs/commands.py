@@ -4,14 +4,18 @@ import discord
 from discord import message
 from discord.ext import commands
 
-from embed_maker.help import color_help, normal_help
+from embed_maker.help import color_help, normal_help, code_help
 from embed_maker import converter
 
 class commander(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-
+    
+    @commands.command("ping")
+    async def ping(self, ctx, *, arg=""):
+        await ctx.channel.send("Hloo watt?")
+    
     @commands.command("embed")
     async def embed(self, ctx, *, arg=""):
         await ctx.message.delete()
@@ -79,7 +83,6 @@ class commander(commands.Cog):
             pass
         else:
             await ctx.channel.send('What are you trying to do actually?')
-
 
     @commands.command("embed-blue")
     async def embed_blue(self, ctx, *, arg=""):
@@ -161,6 +164,11 @@ class commander(commands.Cog):
         await ctx.message.delete()
         await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.teal))
     
+    @commands.command("profile")
+    async def embed_teal(self, ctx):
+        await ctx.message.delete()
+        await ctx.channel.send(embed=converter.profile(ctx, discord.Color.teal))
+    
     @commands.command("help")
     async def help(self, ctx, *arg):
         # Here we are just checking whether the argument is passed with command
@@ -169,6 +177,10 @@ class commander(commands.Cog):
         # Here we are sending help for embed colors
         elif arg[0] == "color":
             await ctx.channel.send(embed=color_help())
+        elif arg[0] == "syntax":
+            await ctx.channel.send(embed=color_help())
+        elif arg[0] == "code":
+            await ctx.channel.send(embed=code_help())
 
 def setup(bot):
     # pushing cogs to main runner
