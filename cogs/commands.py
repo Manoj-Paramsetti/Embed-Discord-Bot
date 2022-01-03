@@ -165,7 +165,7 @@ class commander(commands.Cog):
         await ctx.channel.send(embed=converter.embed(arg, ctx, discord.Color.teal))
     
     @commands.command("profile")
-    async def embed_teal(self, ctx):
+    async def profile(self, ctx):
         await ctx.message.delete()
         await ctx.channel.send(embed=converter.profile(ctx, discord.Color.teal))
     
